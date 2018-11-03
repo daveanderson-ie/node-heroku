@@ -1,0 +1,25 @@
+{
+  "name": "node-heroku",
+  "version": "1.0.0",
+  "description": "A basic node application to try chai",
+  "main": "server.js",
+  "author": "Dave Anderson",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "config": "^1.20.1",
+    "express": "^4.16.4",
+    "mongoose": "^4.4.15",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "mocha": "^2.5.3"
+  },
+  "scripts": {
+    "start": "SET NODE_ENV=dev && node server.js",
+    "test": "mocha --timeout 10000",
+    "testwatch": "mocha --timeout 10000 --watch ./test ./"
+  }
+}
