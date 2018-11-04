@@ -9,7 +9,7 @@ app.route("/element")
     
 if(!module.parent){
     console.log("Listening on port " + port);
-    app.listen(port); 
+    app.listen(port);
 }
 
 module.exports = app;
