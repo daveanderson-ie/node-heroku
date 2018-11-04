@@ -95,11 +95,25 @@ describe('Service Test', function(){
         context('When I request a list of elements', function(){
             it('It should return an empty list of elements', (done) => {
                 request
-                .get('/element').set('Authorization', 'Bearer mytoken')
+                .get('/element')
+                .set('Authorization', 'Bearer mytoken')
                 .end((err, res) => {
                     assert.isNull(err, 'Error');
                     res.should.have.status(200);
                     assert.isArray(res.body.elements);
+                    assert.lengthOf(res.body.elements, 0);
+                    done();
+                });
+            });
+        });
+        context('When I add an element', function(){
+            it('Should return the added element', (done)=> {
+                request
+                .post('/element')
+                .set('Authorization', 'Bearer mytoken')
+                .send({name: 'boron'})
+                .end((err, res) => {
+                    res.should.have.status(200);
                     done();
                 });
             });

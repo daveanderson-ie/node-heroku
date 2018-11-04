@@ -15,7 +15,6 @@ function isAuthorised(req){
 function get(req, res) {
     if(isAuthorised(req)){
         Elements.getElements().then(es => {
-
             res.writeHead(200, {"Content-Type": "application/json"});
             var json = JSON.stringify({
                 'elements': es,
@@ -27,4 +26,18 @@ function get(req, res) {
     };
 };
 
-module.exports = { get };
+function post(req, res){
+    if(isAuthorised(req)){
+        Elements.addElement(req.body.name).then(e => {
+            res.writeHead(200, {"Content-Type": "application/json"});
+            var json = JSON.stringify({
+                'name': e,
+            });
+            res.end(json);    
+        });
+    } else {
+        res.sendStatus(503);
+    }
+};
+
+module.exports = { get, post };
