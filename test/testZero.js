@@ -97,8 +97,9 @@ describe('Service Test', function(){
                 request
                 .get('/element').set('Authorization', 'Bearer mytoken')
                 .end((err, res) => {
+                    assert.isNull(err, 'Error');
                     res.should.have.status(200);
-                    res.should.have.length = 0;
+                    assert.isArray(res.body.elements);
                     done();
                 });
             });

@@ -58,7 +58,7 @@ SET default_with_oids = false;
 
 CREATE TABLE public.elements (
     id integer NOT NULL,
-    name character varying[] NOT NULL
+    name varchar NOT NULL
 );
 
 

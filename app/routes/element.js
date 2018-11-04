@@ -1,3 +1,5 @@
+let Elements = require('../models/element');
+
 function isAuthorised(req){
     if(req.headers.authorization){
         var arr = req.headers.authorization.split(' ');
@@ -10,13 +12,19 @@ function isAuthorised(req){
     return false;
 }
 
-function getElements(req, res) {
+function get(req, res) {
     if(isAuthorised(req)){
-        res.sendStatus(200);
+        Elements.getElements().then(es => {
+
+            res.writeHead(200, {"Content-Type": "application/json"});
+            var json = JSON.stringify({
+                'elements': es,
+            });
+            res.end(json);    
+        });
     } else {
         res.sendStatus(503);
-    }
-    
+    };
 };
 
-module.exports = { getElements };
+module.exports = { get };

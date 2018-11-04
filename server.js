@@ -5,7 +5,7 @@ let element = require('./app/routes/element');
 
 app.get("/", (req, res) => res.json({message: "Welcome to Server."}));
 app.route("/element")
-    .get(element.getElements);
+    .get(element.get);
     
 if(!module.parent){
     console.log("Listening on port " + port);
