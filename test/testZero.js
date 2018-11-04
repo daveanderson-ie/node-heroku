@@ -117,6 +117,21 @@ describe('Service Test', function(){
                     done();
                 });
             });
+            context('When there is an existing element', function(){
+                it('Should return the element in an array', (done) => {
+                    request
+                    .get('/element')
+                    .set('Authorization', 'Bearer mytoken')
+                    .end((err, res) => {
+                        assert.isNull(err, 'Error');
+                        res.should.have.status(200);
+                        assert.isArray(res.body.elements);
+                        assert.lengthOf(res.body.elements, 1);
+                        res.body.elements[0].name.should.be.eql('boron');
+                        done();
+                    });    
+                })
+            });
         });
     });
 });
