@@ -1,0 +1,11 @@
+{
+    "defaultEnv": "local",
+    "local": {
+      "driver": "pg",
+      "user": "postgres",
+      "password": "",
+      "host": "localhost",
+      "database": "node-heroku-test",
+      "schema": "public"
+    }
+  }
