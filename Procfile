@@ -1,2 +1,2 @@
-release: npm run db-migrate-check
+release: npm run release
 web: node server.js
