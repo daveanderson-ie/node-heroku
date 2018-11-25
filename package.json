@@ -26,6 +26,6 @@
     "start": "SET NODE_ENV=dev && node server.js",
     "test": "mocha --timeout 10000",
     "testwatch": "mocha --timeout 10000 --watch ./test ./",
-    "db-migrate-check": "db-migrate check"
+    "db-migrate-check": "db-migrate check --verbose --env local"
   }
 }
