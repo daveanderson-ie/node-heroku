@@ -1,11 +1,8 @@
 {
     "defaultEnv": "local",
-    "local": {
+    "heroku": {
       "driver": "pg",
-      "user": "postgres",
-      "password": "",
-      "host": "localhost",
-      "database": "node-heroku-test",
-      "schema": "public"
+      "url": {"ENV": "DATABASE_URL"},
+      "sslmode": "require"
     }
   }
