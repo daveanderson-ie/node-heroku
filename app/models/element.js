@@ -4,9 +4,9 @@ const client = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: true,
 });
+client.connect();
 
 async function getElements(){
-    client.connect();
     let p = client.query('SELECT id, name FROM elements').then((res) => {
         return res.rows;
     }).catch((err)=>{
