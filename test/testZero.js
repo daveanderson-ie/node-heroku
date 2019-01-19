@@ -11,13 +11,6 @@ describe('Service Test', function(){
     chai.use(chaiHttp);
     var request = chai.request.agent(server.listen());
 
-    before(function() {
-        pool.query('SELECT NOW()', (err, res) => {
-            assert.isUndefined(err, 'Database connection error.');
-            pool.end()
-        });
-    });
-
     context('When the universe is empty', function(){
         it('Everything should be ok', function(done){
             'true'.should.be.eql('true');
