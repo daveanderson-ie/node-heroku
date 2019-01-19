@@ -5,17 +5,6 @@ let chaiHttp = require('chai-http');
 let should = chai.should();
 var assert = require('chai').assert;
 
-const { execSync } = require('child_process');
-
-const { Pool, Client } = require('pg')
-const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'node-heroku-test',
-    password: '',
-    port: 5432,
-});
-
 let server = require('../server');
 
 describe('Service Test', function(){
