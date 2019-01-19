@@ -44,19 +44,19 @@ describe('Service Test', function(){
                 });
             });
         });
-        // context('When I request a list of elements', function(){
-        //     it('It should return status 503', (done) => {
-        //         request
-        //         .get('/element')
-        //         .end((err, res) => {
-        //             res.should.have.status(503);
-        //             res.should.have.length = 0;
-        //             done();
-        //         }).catch((err) => {
-        //             done(err);
-        //         });
-        //     });
-        // });
+        context('When I request a list of elements', function(){
+            it('It should return status 503', (done) => {
+                request
+                .get('/element')
+                .end((err, res) => {
+                    res.should.have.status(503);
+                    res.should.have.length = 0;
+                    done();
+                }).catch((err) => {
+                    done(err);
+                });
+            });
+        });
     });
     // context('Given I am authorised', function(){
     //     context('When I request a list of elements', function(){
