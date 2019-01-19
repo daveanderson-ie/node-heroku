@@ -18,33 +18,11 @@ const pool = new Pool({
 
 let server = require('../server');
 
-function getDropDatabaseCommand(poolOptions){
-    return 'dropdb --if-exists' + 
-        ' -h ' + poolOptions.host +
-        ' -p ' + poolOptions.port +
-        ' -U ' + poolOptions.user +
-        ' ' + poolOptions.database;
-}
-
-function getRestoreDatabaseCommand(poolOptions, fileName){
-    return 'psql' +
-        ' -h ' + poolOptions.host +
-        ' -p ' + poolOptions.port +
-        ' -U ' + poolOptions.user +
-        ' -f ' + fileName;
-}
-
 describe('Service Test', function(){
     chai.use(chaiHttp);
     var request = chai.request.agent(server.listen());
 
     before(function() {
-        var cmd = getDropDatabaseCommand(pool.options);
-        var result = execSync(cmd);
-
-        cmd = getRestoreDatabaseCommand(pool.options, './node-heroku-test.sql');
-        result = execSync(cmd);
-
         pool.query('SELECT NOW()', (err, res) => {
             assert.isUndefined(err, 'Database connection error.');
             pool.end()
