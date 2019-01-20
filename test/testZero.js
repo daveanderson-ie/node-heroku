@@ -48,7 +48,7 @@ describe('Service Test', function(){
             it('It should return status 503', (done) => {
                 request
                 .get('/element')
-                .end((err, res) => {
+                .then((res) => {
                     res.should.have.status(503);
                     res.should.have.length = 0;
                     done();
