@@ -1,5 +1,8 @@
 {
-    "defaultEnv": "local",
+    "defaultEnv": "dev",
+    "dev": {
+      "driver":"pg"
+    },
     "heroku": {
       "driver": "pg",
       "url": {"ENV": "DATABASE_URL"},
